@@ -1,20 +1,19 @@
 const express = require("express")
+
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+const path = require('path')
 const notes = require('./db/db')
-console.log(notes)
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'))
-// })
+const apiRoutes = require('./routes/apiRoutes')
+const htmlRoutes = require('./routes/htmlRoutes')
 
-app.get('/api/notes', (req, res) => {
-    res.json(notes)
-})
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.static('public'))
 
-// app.use('/api', apiRoutes);
-// app.use('/', htmlRoutes);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server now on port ${PORT}.`)
