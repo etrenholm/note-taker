@@ -44,6 +44,9 @@ Project was updated using:
 
 ### STEP 3. - CREATE FUNCTIONALITY
 * Created GET, POST, and DELETE requests and tested with Insomnia
+* Created GET functionality to get all notes from the array of notes and display on the page
+* Created POST functionality to add notes to the array of notes and display on the page
+* Created DELETE functionality to delete notes from the array and display new array on the page
 
 ### STEP 4. - FINALIZE
 * Made various commits throughout process to save progress
@@ -51,7 +54,7 @@ Project was updated using:
 * Made tweaks and finished README.md
 
 ## Results
-* [Heroku Link]()
+* [Heroku URL](https://powerful-spire-56491.herokuapp.com/)
 * [GitHub Repository](https://github.com/etrenholm/note-taker)
 
 ![mockup](./public/assets/images/note-taker.png)
