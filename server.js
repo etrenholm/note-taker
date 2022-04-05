@@ -1,19 +1,28 @@
+// initialize express
 const express = require("express")
-
-const PORT = process.env.PORT || 3001;
 const app = express();
-const notes = require('./db/db')
 
-const apiRoutes = require('./routes/apiRoutes')
-const htmlRoutes = require('./routes/htmlRoutes')
+// set port
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
 
+// set api route
+const apiRoutes = require('./routes/apiRoutes')
 app.use('/api', apiRoutes);
+
+// set html route
+const htmlRoutes = require('./routes/htmlRoutes')
 app.use('/', htmlRoutes);
 
+// set error code
+app.use((req, res) => {
+    res.status(404).end()
+})
+
+// listen for port
 app.listen(PORT, () => {
     console.log(`Server now on port ${PORT}.`)
 })
